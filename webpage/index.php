@@ -37,7 +37,7 @@ $creditNum = "";
 $isCreditNumValid = "";
 $creditCardExpiry = "";
 $isCreditCardExpiryValid = "";
-$salary ="";
+$salary = "";
 $isSalaryValid = "";
 $webURL = "";
 $isWebURLValid = "";
@@ -53,7 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST["username"];
     $isUsernameValid = preg_match("/\w{5,}/", $username);
     $password = $_POST["password"];
-    $isPasswordValid= preg_match("/\w{8,}/", $password);
+    $isPasswordValid = preg_match("/^(?=\w{6,10}\z)(?=[^a-z]*[a-z])(?=(?:[^A-Z]*[A-Z]){3})\D*\d.*$/", $password);
     $confirmPassword = $_POST["confirmPassword"];
     $isConfirmPasswordValid = $confirmPassword == $password;
     $dateOfB = $_POST["dateOfB"];
@@ -115,16 +115,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                    value="<?= $username ?>" required>
         </dd>
 
-        <dt>Username</dt>
-        <dd>
-            <input type="text" name="username" class="<?= $isUsernameValid ? "" : "invalid" ?>"
-                   value="<?= $username ?>" required>
-        </dd>
-
         <dt>Password</dt>
         <dd>
             <input type="text" name="password" class="<?= $isPasswordValid ? "" : "invalid" ?>"
-                   value="<?= $password ?>" required>
+                   value="<?= $password ?>"
+                   title="  Must be between six and ten word characters,
+                            include at least one lowercase character,
+                            include at least three uppercase characters
+                            and include at least one digit" required>
+
         </dd>
 
         <dt>Confirm Password</dt>
@@ -136,79 +135,79 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <dt>Date of Birth (dd.MM.yyyy)</dt>
         <dd>
             <input type="text" name="dateOfB" class="<?= $isDOBValid ? "" : "invalid" ?>"
-                   value="<?= $dateOfB ?>" >
+                   value="<?= $dateOfB ?>">
         </dd>
 
         <dt>Gender (Male or Female)</dt>
         <dd>
             <input type="text" name="gender" class="<?= $isGenderValid ? "" : "invalid" ?>"
-                   value="<?= $gender ?>" >
+                   value="<?= $gender ?>">
         </dd>
 
         <dt>Marital Status (Single, Married, Divorced or Widowed)</dt>
         <dd>
             <input type="text" name="maritalSts" class="<?= $isMaritalStsValid ? "" : "invalid" ?>"
-                   value="<?= $maritalSts ?>" >
+                   value="<?= $maritalSts ?>">
         </dd>
 
         <dt>Address</dt>
         <dd>
             <input type="text" name="address" class="<?= $isAddressValid ? "" : "invalid" ?>"
-                   value="<?= $address ?>" required >
+                   value="<?= $address ?>" required>
         </dd>
 
         <dt>City</dt>
         <dd>
             <input type="text" name="city" class="<?= $isCityValid ? "" : "invalid" ?>"
-                   value="<?= $city ?>" required >
+                   value="<?= $city ?>" required>
         </dd>
 
         <dt>Postal Code</dt>
         <dd>
             <input type="text" name="postCode" class="<?= $isPostCodeValid ? "" : "invalid" ?>"
-                   value="<?= $postCode ?>" required >
+                   value="<?= $postCode ?>" required>
         </dd>
 
         <dt>Home Phone</dt>
         <dd>
             <input type="text" name="homeTel" class="<?= $isHomeTelValid ? "" : "invalid" ?>"
-                   value="<?= $homeTel ?>" required >
+                   value="<?= $homeTel ?>" required>
         </dd>
 
         <dt>Mobile Phone</dt>
         <dd>
             <input type="text" name="mobileTel" class="<?= $isMobileTelValid ? "" : "invalid" ?>"
-                   value="<?= $mobileTel ?>" required >
+                   value="<?= $mobileTel ?>" required>
         </dd>
 
         <dt>Credit Card Number</dt>
         <dd>
             <input type="text" name="creditNum" class="<?= $isCreditNumValid ? "" : "invalid" ?>"
-                   value="<?= $creditNum ?>" required >
+                   value="<?= $creditNum ?>" required>
         </dd>
 
         <dt>Credit Card Expiry Date (dd.MM.yyyy)</dt>
         <dd>
             <input type="text" name="creditCardExpiry" class="<?= $isCreditCardExpiryValid ? "" : "invalid" ?>"
-                   value="<?= $creditCardExpiry ?>" requried >
+                   value="<?= $creditCardExpiry ?>" requried>
         </dd>
 
         <dt>Monthly Salary Format:(UZS 200,000.00)</dt>
         <dd>
             <input type="text" name="salary" class="<?= $isSalaryValid ? "" : "invalid" ?>"
-                   value="<?= $salary ?>" requried >
+                   value="<?= $salary ?>" requried>
         </dd>
 
         <dt>Web Site URL</dt>
         <dd>
             <input type="text" name="webURL" class="<?= $isWebURLValid ? "" : "invalid" ?>"
-                   value="<?= $webURL ?>" requried >
+                   value="<?= $webURL ?>" requried>
         </dd>
 
         <dt>Overall GPA</dt>
         <dd>
             <input type="text" name="GPA" class="<?= $isGPAValid ? "" : "invalid" ?>"
-                   value="<?= $GPA ?>" requried >
+                   value="<?= $GPA ?>" requried>
         </dd>
 
 
